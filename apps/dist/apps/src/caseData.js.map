@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/caseData.ts"],
+  "sourcesContent": ["\r\nexport interface User {\r\n  name : string;\r\n  uuid : string;\r\n  balance : number;\r\n  createdOn: Date;\r\n  lastUpdated : Date;\r\n  simulatedDay : number;\r\n  underProcessBal : number;\r\n}\r\n\r\nexport interface Purchase {\r\n  accountId : string;\r\n  productId : string;\r\n  simulatedDay : number;\r\n}"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

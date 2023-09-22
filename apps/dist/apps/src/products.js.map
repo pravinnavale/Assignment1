@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/products.ts"],
+  "sourcesContent": ["export const products = [\r\n    {\r\n      id: \"solar\",\r\n      title: \"Solar Panel\",\r\n      description: \"Super duper Essent solar panel\",\r\n      stock: 10,\r\n      price: 750,\r\n    },\r\n    {\r\n      id: \"insulation\",\r\n      title: \"Insulation\",\r\n      description: \"Cavity wall insulation\",\r\n      stock: 10,\r\n      price: 2500,\r\n    },\r\n    {\r\n      id: \"heatpump\",\r\n      title: \"Awesome Heatpump\",\r\n      description: \"Hybrid heat pump\",\r\n      stock: 3,\r\n      price: 5000,\r\n    },\r\n  ];"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAO,MAAM,WAAW;AAAA,EACpB;AAAA,IACE,IAAI;AAAA,IACJ,OAAO;AAAA,IACP,aAAa;AAAA,IACb,OAAO;AAAA,IACP,OAAO;AAAA,EACT;AAAA,EACA;AAAA,IACE,IAAI;AAAA,IACJ,OAAO;AAAA,IACP,aAAa;AAAA,IACb,OAAO;AAAA,IACP,OAAO;AAAA,EACT;AAAA,EACA;AAAA,IACE,IAAI;AAAA,IACJ,OAAO;AAAA,IACP,aAAa;AAAA,IACb,OAAO;AAAA,IACP,OAAO;AAAA,EACT;AACF;",
+  "names": []
+}
