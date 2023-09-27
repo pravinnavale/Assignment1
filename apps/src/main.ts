@@ -1,4 +1,3 @@
-import { randomUUID } from 'crypto';
 import express from 'express';
 import bodyParser from "body-parser";
 import { User } from './caseData';
@@ -11,6 +10,7 @@ import { handlePurchase } from './handlePurchase';
 import { addProduct } from './addProduct';
 import { getSimulatedDay } from './getSimulatedDay';
 import { getProductbyID } from './getProductByID';
+import { getAllProducts } from './getAllProducts';
 
 const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
@@ -56,11 +56,6 @@ app.post('/accounts/:accountId/deposits', (req, res) => {
   res.status(200).send(user);
 });
 
-//Get available products
-app.get('/products', (req, res) => {
-  res.status(200).send(products);
-});
-
 //Get available purchases
 app.get('/purchases', (req, res) => {
   res.status(200).send(purchase);
@@ -69,7 +64,7 @@ app.get('/purchases', (req, res) => {
 //Handle purchase
 app.post('/accounts/:accountId/purchases', (req, res) => {
   const resp : string = handlePurchase(req, res, user, purchase, products, SimulatedDay)   ;
-  //res.send(resp) ;
+  res.send(resp) ;
 });
 
 //Add product
@@ -79,7 +74,12 @@ app.post('/products', (req, res) => {
   res.send(tempProd);
 });
 
-//Get product
+//Get available products
+app.get('/products', (req, res) => {
+  getAllProducts(req, res, SimulatedDay, products);
+});
+
+//Get product by ID
 app.post('/products/:productId', (req, res) => {
   getProductbyID(req, res, SimulatedDay, products);
 });
