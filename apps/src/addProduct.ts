@@ -1,11 +1,9 @@
-import { products } from "./products";
+import { products } from "./modules/products";
 import { randomUUID } from "crypto";
+import { simulatedDay } from './main';
 
-export function addProduct(req, SimulatedDay){
-  const { title } = req.body;
-  const { description } = req.body;
-  const { price } = req.body;
-  const { stock } = req.body;
+export function addProduct(req, res){
+  const { title, description, price, stock } = req.body;
 
   const tempProd : typeof products[0] = {
     id : randomUUID(),
@@ -13,8 +11,8 @@ export function addProduct(req, SimulatedDay){
     description : description,
     price : price,
     stock : stock,
-    simulatedDay : SimulatedDay
+    simulatedDay : simulatedDay
   };
-
-  return tempProd;
+  products[products.length] = tempProd;
+  res.status(200).send(products);
 }

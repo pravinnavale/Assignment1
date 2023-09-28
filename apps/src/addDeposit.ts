@@ -1,14 +1,16 @@
-import { User } from './caseData';
+import { User } from './modules/caseData';
+import { users } from './router';
+import { simulatedDay } from './main';
 
-export function addDeposit(req, user : User[], SimulatedDay) : User[] {
+export function addDeposit(req, res) {
     const accID = req.params['accountId']; // Use to read path parameters
     const { amount } =  req.body; 
 
-    for (const usr of user){
-        if(usr.uuid == accID){
-            usr.simulatedDay = SimulatedDay;
+    for (const usr of users){
+        if(usr.uuid === accID){
+            usr.simulatedDay = simulatedDay;
             usr.balance = usr.balance + amount;
-            if(usr.simulatedDay == SimulatedDay){
+            if(usr.simulatedDay == simulatedDay){
                 usr.underProcessBal = amount;      
             }
             usr.lastUpdated = new Date();
@@ -16,5 +18,5 @@ export function addDeposit(req, user : User[], SimulatedDay) : User[] {
         }
     }
 
-    return user;
+    res.status(200).send(users);
 }

@@ -1,13 +1,17 @@
-export function getAllProducts(req, res, SimulatedDay, products){    
+import { product } from './modules/caseData';
+import { products } from './modules/products';
+import { simulatedDay } from './main';
+
+export function getAllProducts(req, res){    
     let flag = false;
-    const tempPrds : typeof products [] = [];
+    const tempPrds : product []= [];
   
     for (const currProd of products){
-    if(currProd.simulatedDay < SimulatedDay){
-      flag = true;  
-      tempPrds.push(currProd);      
+      if(currProd.simulatedDay < simulatedDay){
+        flag = true;  
+        tempPrds.push(currProd);      
+      }
     }
-  }
 
   if(!flag){
     res.status(400).send('No Product found..');
